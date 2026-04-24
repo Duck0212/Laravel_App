@@ -7,12 +7,12 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return 'Page world';
-});
+    return 'Page home';
+})->name('home');
 
 Route::get('/shop', function () {
     return 'Page shop';
-})->name('home');
+})->middleware('checkAge');
 
 Route::get('/about', function () {
     return 'Page about';

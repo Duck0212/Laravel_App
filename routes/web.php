@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\OrderProductController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -39,3 +44,9 @@ Route::prefix('admin')->group(function () {
         return $name;
     });
 });
+
+Route::resource('users', UserController::class);
+Route::resource('categories', CategoryController::class);
+Route::resource('products', ProductController::class);
+Route::resource('orders', OrderController::class);
+Route::resource('orderproducts', OrderProductController::class);

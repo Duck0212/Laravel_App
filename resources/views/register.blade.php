@@ -1,248 +1,140 @@
-<html lang="en">
+@extends('layouts.master')
 
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-container-high": "#ebe7e6",
-                        "secondary-container": "#dfe0e0",
-                        "surface-variant": "#e5e2e1",
-                        "surface": "#fdf8f8",
-                        "surface-dim": "#ddd9d8",
-                        "on-surface": "#1c1b1b",
-                        "on-primary": "#ffffff",
-                        "on-error-container": "#93000a",
-                        "on-secondary-fixed-variant": "#454747",
-                        "on-tertiary-fixed": "#241a00",
-                        "background": "#fdf8f8",
-                        "surface-bright": "#fdf8f8",
-                        "on-tertiary-fixed-variant": "#574500",
-                        "secondary-fixed": "#e2e2e2",
-                        "primary-fixed": "#e5e2e1",
-                        "on-primary-container": "#858383",
-                        "secondary-fixed-dim": "#c6c6c7",
-                        "surface-tint": "#5f5e5e",
-                        "outline": "#747878",
-                        "on-secondary": "#ffffff",
-                        "secondary": "#5d5f5f",
-                        "on-background": "#1c1b1b",
-                        "on-primary-fixed-variant": "#474746",
-                        "primary": "#000000",
-                        "surface-container": "#f1edec",
-                        "tertiary-fixed-dim": "#e9c349",
-                        "on-secondary-fixed": "#1a1c1c",
-                        "tertiary-fixed": "#ffe088",
-                        "on-tertiary-container": "#4f3e00",
-                        "error": "#ba1a1a",
-                        "on-tertiary": "#ffffff",
-                        "on-secondary-container": "#616363",
-                        "on-primary-fixed": "#1c1b1b",
-                        "primary-fixed-dim": "#c8c6c5",
-                        "tertiary-container": "#cca730",
-                        "outline-variant": "#c4c7c7",
-                        "surface-container-low": "#f7f3f2",
-                        "primary-container": "#1c1b1b",
-                        "on-error": "#ffffff",
-                        "inverse-primary": "#c8c6c5",
-                        "surface-container-lowest": "#ffffff",
-                        "inverse-on-surface": "#f4f0ef",
-                        "inverse-surface": "#313030",
-                        "on-surface-variant": "#444748",
-                        "error-container": "#ffdad6",
-                        "surface-container-highest": "#e5e2e1",
-                        "tertiary": "#735c00"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "md": "24px",
-                        "lg": "48px",
-                        "sm": "12px",
-                        "gutter": "24px",
-                        "xl": "80px",
-                        "container-max": "1440px",
-                        "xs": "4px",
-                        "base": "8px"
-                    },
-                    "fontFamily": {
-                        "h2": ["Playfair Display"],
-                        "button": ["Montserrat"],
-                        "h1": ["Playfair Display"],
-                        "body-sm": ["Montserrat"],
-                        "body-md": ["Montserrat"],
-                        "body-lg": ["Montserrat"],
-                        "label-caps": ["Montserrat"],
-                        "h3": ["Playfair Display"]
-                    },
-                    "fontSize": {
-                        "h2": ["32px", {
-                            "lineHeight": "1.3",
-                            "letterSpacing": "0em",
-                            "fontWeight": "500"
-                        }],
-                        "button": ["14px", {
-                            "lineHeight": "1.0",
-                            "letterSpacing": "0.05em",
-                            "fontWeight": "500"
-                        }],
-                        "h1": ["48px", {
-                            "lineHeight": "1.2",
-                            "letterSpacing": "-0.01em",
-                            "fontWeight": "600"
-                        }],
-                        "body-sm": ["14px", {
-                            "lineHeight": "1.5",
-                            "letterSpacing": "0.02em",
-                            "fontWeight": "400"
-                        }],
-                        "body-md": ["16px", {
-                            "lineHeight": "1.6",
-                            "letterSpacing": "0.01em",
-                            "fontWeight": "400"
-                        }],
-                        "body-lg": ["18px", {
-                            "lineHeight": "1.6",
-                            "letterSpacing": "0.01em",
-                            "fontWeight": "400"
-                        }],
-                        "label-caps": ["12px", {
-                            "lineHeight": "1.0",
-                            "letterSpacing": "0.1em",
-                            "fontWeight": "600"
-                        }],
-                        "h3": ["24px", {
-                            "lineHeight": "1.4",
-                            "letterSpacing": "0.01em",
-                            "fontWeight": "500"
-                        }]
-                    }
-                },
-            },
-        }
-    </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-            font-size: 20px;
-        }
+@section('title', 'Register')
 
-        input:focus {
-            outline: none;
-            border-bottom-color: #000000 !important;
-        }
-    </style>
-</head>
-
-<body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
-    <!-- Suppression Logic: Navigation Shell is excluded because this is a focused transactional/onboarding page -->
-    <main class="min-h-screen flex flex-col md:flex-row">
-        <!-- Visual Editorial Column -->
-        <div class="hidden md:block md:w-1/2 lg:w-3/5 h-screen sticky top-0 bg-surface-container-highest">
-            <img class="w-full h-full object-cover" data-alt="A high-fashion editorial photograph featuring a model in architectural, minimalist clothing standing against a stark, high-contrast concrete background. The lighting is harsh and dramatic, casting deep shadows that emphasize the texture of the garments and the clean lines of the setting. The overall mood is sophisticated, quiet, and representative of luxury craftsmanship, following a monochromatic palette of blacks, whites, and soft greys." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9YIA7TZwFy5bGgFl0Gar2sGkSrGtLHAsgcgEE4jqGUac9IktACpCzDFkA0uoIpjXOhBabqCfv1Z6afukfdD0tWU12Q8Fb4sETybtoGdabBkWDumTIGNIyyBkKLASFdi8UEw00xjEFc8cA_NJ7jWW7WsTktS2w3-RKb4HAuUmP0yHmv8oHCPifQ4TwICm5-Pa5Xk7OephKBE5IdNd4PpNlLaLbmK7aEx7GmGql09iLqnwN2KgtnU6wn5qbFwfd2T5DesmxpIerAPq4" />
-            <div class="absolute inset-0 bg-primary/5"></div>
-            <div class="absolute bottom-xl left-xl max-w-md text-on-primary-fixed">
-                <h2 class="font-h1 text-h1 mb-md">ATELIER</h2>
-                <p class="font-body-lg text-body-lg opacity-80">A curation of timeless pieces for the modern silhouette. Join our community of discerning collectors.</p>
+@section('content')
+<main class="register-container flex items-center justify-center py-lg px-margin-mobile">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-xl max-w-[1280px] w-full items-center mt-8">
+        <!-- Left Side: Visual/Brand Messaging -->
+        <div class="hidden lg:block lg:col-span-6 space-y-md">
+            <div class="relative rounded-xl overflow-hidden aspect-[4/5] shadow-sm">
+                <img class="absolute inset-0 w-full h-full object-cover opacity-60" data-alt="A premium close-up of vibrant, fresh organic fruits including ripe berries and tropical citrus arranged artistically on a white marble surface. The lighting is bright and natural, emphasizing the dewy texture and peak ripeness of the produce. The overall aesthetic is clean, minimalist, and high-end, reflecting a sense of health, purity, and organic vitality through a bright light-mode color palette."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzMpzk9kTUyi3a1N0wJiHzPB83CLBYQJKUXn-wp1rDqoRKbKhx5YxgdgMamdDGq5eqgMY6DllDSrkVrsNQOBKXor1sx9183m8FCT3hEv3mETDx_TKcuxMcxPl4NOMNY9Jf5vq7ygmTfXHWiE6PtoUUddXcuO05stUu2sMnjHHr_dHe0SvLjW9IOtO_4sLjCfeOKvXJq7Td6Hni6bAiMFYcUgkQC_agWH7PeHUAipWOLy--BjSreSvf2JXdabToQER57dnRESrnJF0" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-xl text-white">
+                    <h2 class="font-display-lg text-white mb-sm">Gia nhập cộng đồng Sống Khỏe</h2>
+                    <p class="font-body-lg text-white/90">Trải nghiệm những loại trái cây tươi ngon nhất từ nông trại hữu cơ đến tận cửa nhà bạn.</p>
+                </div>
+            </div>
+            <div class="flex gap-md">
+                <div class="flex -space-x-base">
+                    <div class="w-10 h-10 rounded-full border-2 border-white bg-surface-container">
+                        <img class="w-full h-full rounded-full object-cover" data-alt="Profile portrait of a smiling user in a bright setting."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCQMfM7PU5hPItHWdr5Z2tklgZqkJU38iiHUjVWoD098ElHniZf0nGSp8YCZgn_j9aQZTAqnO2wvV_329YBrlRvvi3Ah6w9zKoIfN9gg2GYufY5F76TyO71rYxIFqm1Z_F4qJpzY3P8puGUb7muMQN9lcs0Xcjnhvx5EOKLz5EMsuWtVviGmrihoDpNltC6VmAndtwmiTbpIH5Mk6qaOzgSbhAWc_FFKhVv7x65toCjz_O2yssEE-ByYszhjCnBfzsET1TtuykNpI" />
+                    </div>
+                    <div class="w-10 h-10 rounded-full border-2 border-white bg-surface-container">
+                        <img class="w-full h-full rounded-full object-cover" data-alt="Profile portrait of a smiling user in a bright setting."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLJ2sHZYc0vPD16v3ntOEtckD38lmltcVWMDAsWuHlkZpHO6xWlcwdYhdt70N7kE6Q9nn5y6M7ex8dzu7fLDwXbcjnI3nos-hJfNel5Jbs1UW5-qNUil8OUiDzYe8sGdZ_0RVsJU45MvlFxK3RHFSUTb_1yjVAKSb3ActLQ_-QDOsVEm5XyRDZpzR-m2TPRgspFXUIxebW6cMUdDSP9a96tA3nvQrO8JvEtoq6YuAv5OdWYUK5FbVtIjG8s65mGqCmMNvehEP7naU" />
+                    </div>
+                    <div class="w-10 h-10 rounded-full border-2 border-white bg-surface-container">
+                        <img class="w-full h-full rounded-full object-cover" data-alt="Profile portrait of a smiling user in a bright setting."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoJQFYN1f8ldPyUFGwWQMREsZoEuKQuVyqH7Xm-zX48-c0bvrRMW7iaIAIifgUMwfviM74oJlnlFhCQZanJMjxvm_lgWKBKvULGVcCPPwS8AEiNJtz3b5o1m3pP8MHDrbO29wCkPBEl3JqWkiMpnO8aV-RTvIrqrrhm7gdlhip4VW-pjcQKmdihOS8Qy3dyei5JP9lE1kvdqNH9YW9mtx7ijHmyRyKxCTVI259_0eeDxHYl_cHq60tdVQqAXgaJBZqPaWmixvnVpc" />
+                    </div>
+                </div>
+                <div class="text-on-surface-variant font-label-md py-2">
+                    +5,000 khách hàng đã tin dùng
+                </div>
             </div>
         </div>
-        <!-- Form Column -->
-        <div class="w-full md:w-1/2 lg:w-2/5 flex flex-col justify-center px-md lg:px-xl py-xl bg-surface">
-            <!-- Mobile Brand Header -->
-            <div class="md:hidden mb-lg flex justify-between items-center">
-                <h1 class="font-h2 text-h2 text-primary">ATELIER</h1>
-                <a class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary transition-colors" href="/">BACK</a>
-            </div>
-            <div class="max-w-md w-full mx-auto">
-                <header class="mb-lg">
-                    <span class="font-label-caps text-label-caps tracking-widest text-on-surface-variant mb-xs block">MEMBERSHIP</span>
-                    <h2 class="font-h2 text-h2 mb-sm">Create an Account</h2>
-                    <p class="font-body-md text-body-md text-on-surface-variant">Sign up to access exclusive collections, early launches, and editorial journals.</p>
-                </header>
-                <form class="space-y-md">
-                    <!-- Name Input -->
-                    <div class="group">
-                        <label class="font-label-caps text-label-caps text-on-surface-variant group-focus-within:text-primary transition-colors">Full Name</label>
-                        <input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-md px-0 placeholder:text-outline focus:ring-0 transition-all font-body-md" placeholder="ELIAS VANCE" type="text" />
-                    </div>
-                    <!-- Email Input -->
-                    <div class="group">
-                        <label class="font-label-caps text-label-caps text-on-surface-variant group-focus-within:text-primary transition-colors">Email Address</label>
-                        <input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-md px-0 placeholder:text-outline focus:ring-0 transition-all font-body-md" placeholder="ELIAS@ATELIER.COM" type="email" />
-                    </div>
-                    <!-- Password Input -->
-                    <div class="group">
-                        <div class="flex justify-between items-end">
-                            <label class="font-label-caps text-label-caps text-on-surface-variant group-focus-within:text-primary transition-colors">Password</label>
-                        </div>
+        <!-- Right Side: Registration Form Card -->
+        <div class="lg:col-span-6 w-full max-w-[520px] mx-auto">
+            <div class="bg-surface-container-lowest p-md md:p-xl rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-outline-variant/30">
+                <div class="mb-lg">
+                    <h1 class="font-headline-md text-on-surface mb-xs">Tạo tài khoản mới</h1>
+                    <p class="font-body-md text-on-surface-variant">Bắt đầu hành trình thưởng thức hương vị tự nhiên.</p>
+                </div>
+                @if (session('info'))
+                <div class="mb-md rounded-xl border border-blue-200 bg-blue-50 p-4 text-blue-900">
+                    {{ session('info') }}
+                </div>
+                @endif
+                @if ($errors->any())
+                <div class="mb-md rounded-xl border border-rose-200 bg-rose-50 p-4 text-rose-900">
+                    <ul class="list-disc pl-5 space-y-1">
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+                <form action="{{ route('register.store') }}" method="POST" class="space-y-md">
+                    @csrf
+                    <!-- Full Name -->
+                    <div class="space-y-xs">
+                        <label class="font-label-md text-on-surface-variant ml-1" for="full_name">Họ tên</label>
                         <div class="relative">
-                            <input class="w-full bg-transparent border-t-0 border-x-0 border-b border-outline-variant py-md px-0 placeholder:text-outline focus:ring-0 transition-all font-body-md" placeholder="••••••••" type="password" />
-                            <button class="absolute right-0 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary" type="button">
-                                <span class="material-symbols-outlined" data-icon="visibility">visibility</span>
-                            </button>
+                            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="person">person</span>
+                            <input class="w-full pl-12 pr-4 py-3 bg-surface border-transparent rounded-lg focus:ring-2 focus:ring-primary-fixed-dim focus:border-primary transition-all font-body-md" id="full_name" name="name" placeholder="Nguyễn Văn A" type="text" value="{{ old('name') }}" />
                         </div>
                     </div>
-                    <!-- Terms -->
-                    <div class="flex items-start gap-sm pt-sm">
-                        <input class="mt-1 rounded-none border-outline-variant text-primary focus:ring-primary h-4 w-4" id="terms" type="checkbox" />
-                        <label class="font-body-sm text-body-sm text-on-surface-variant" for="terms">
-                            I agree to the <a class="underline hover:text-primary transition-colors" href="#">Terms of Service</a> and <a class="underline hover:text-primary transition-colors" href="#">Privacy Policy</a>.
+                    <!-- Email -->
+                    <div class="space-y-xs">
+                        <label class="font-label-md text-on-surface-variant ml-1" for="email">Email</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="mail">mail</span>
+                            <input class="w-full pl-12 pr-4 py-3 bg-surface border-transparent rounded-lg focus:ring-2 focus:ring-primary-fixed-dim focus:border-primary transition-all font-body-md" id="email" name="email" placeholder="example@email.com" type="email" value="{{ old('email') }}" />
+                        </div>
+                    </div>
+                    <!-- Phone Number -->
+                    <div class="space-y-xs">
+                        <label class="font-label-md text-on-surface-variant ml-1" for="phone">Số điện thoại</label>
+                        <div class="relative">
+                            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="phone_iphone">phone_iphone</span>
+                            <input class="w-full pl-12 pr-4 py-3 bg-surface border-transparent rounded-lg focus:ring-2 focus:ring-primary-fixed-dim focus:border-primary transition-all font-body-md" id="phone" name="phone" placeholder="090 123 4567" type="tel" value="{{ old('phone') }}" />
+                        </div>
+                    </div>
+                    <!-- Password Cluster -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-on-surface-variant ml-1" for="password">Mật khẩu</label>
+                            <div class="relative">
+                                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="lock">lock</span>
+                                <input class="w-full pl-12 pr-4 py-3 bg-surface border-transparent rounded-lg focus:ring-2 focus:ring-primary-fixed-dim focus:border-primary transition-all font-body-md" id="password" name="password" placeholder="••••••••" type="password" />
+                            </div>
+                        </div>
+                        <div class="space-y-xs">
+                            <label class="font-label-md text-on-surface-variant ml-1" for="confirm_password">Xác nhận</label>
+                            <div class="relative">
+                                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline" data-icon="lock_reset">lock_reset</span>
+                                <input class="w-full pl-12 pr-4 py-3 bg-surface border-transparent rounded-lg focus:ring-2 focus:ring-primary-fixed-dim focus:border-primary transition-all font-body-md" id="confirm_password" name="password_confirmation" placeholder="••••••••" type="password" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Terms Checkbox -->
+                    <div class="flex items-start gap-sm pt-xs">
+                        <div class="flex items-center h-5">
+                            <input class="w-5 h-5 rounded-md text-primary border-outline-variant focus:ring-primary focus:ring-offset-0 bg-surface" id="terms" type="checkbox" />
+                        </div>
+                        <label class="font-label-sm text-on-surface-variant leading-tight" for="terms">
+                            Tôi đồng ý với <a class="text-primary font-bold hover:underline" href="#">Điều khoản dịch vụ</a> và <a class="text-primary font-bold hover:underline" href="#">Chính sách bảo mật</a> của FreshHarvest.
                         </label>
                     </div>
-                    <!-- Action Buttons -->
-                    <div class="pt-md space-y-md">
-                        <button class="w-full bg-primary text-on-primary font-button text-button py-md hover:bg-on-surface-variant transition-all active:scale-95 uppercase tracking-widest" type="submit">
-                            CREATE ACCOUNT
+                    <!-- Submit Button -->
+                    <button class="w-full bg-primary text-white py-4 rounded-lg font-headline-sm hover:bg-primary-container transition-all duration-200 shadow-md hover:shadow-lg active:scale-95 flex items-center justify-center gap-sm cursor-pointer hover:cursor-pointer" type="submit">
+                        Đăng ký ngay
+                        <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+                    </button>
+                    <!-- Social Login Option -->
+                    <div class="relative flex py-4 items-center">
+                        <div class="flex-grow border-t border-outline-variant"></div>
+                        <span class="flex-shrink mx-4 font-label-sm text-outline">hoặc đăng ký với</span>
+                        <div class="flex-grow border-t border-outline-variant"></div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-md">
+                        <button class="flex items-center justify-center gap-sm py-3 px-4 border border-outline-variant rounded-lg font-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer hover:cursor-pointer" type="button">
+                            <img alt="Google Logo" class="w-5 h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBqfek_8f9R80quIkiq8sgCgChK27Z0I89WkzeIIW2OXNewsqEVdN5XvhrNLEZTXtfIrPZPOSI8pyOgTu2xjfZ1TSN-O2H-Tm7QlgFIxlEoTJ66mrYivFHHyLhfkvsXN_haQE_7VQpr0inlwiFGgVtB1QL0gD43-gWgAFFrAC99DZn9YvSCcYFE3FWzIl8OU4XF9czterkFovgLNxkIb3UYOHnDU8uo31M-3YCLc5fy_QI0eO-1bG9sAFNj6qFiB5AiMy5xACZhUM" />
+                            Google
                         </button>
-                        <div class="relative py-sm">
-                            <div class="absolute inset-0 flex items-center"><span class="w-full border-t border-outline-variant/30"></span></div>
-                            <div class="relative flex justify-center text-xs uppercase"><span class="bg-surface px-md text-on-surface-variant font-label-caps">Or continue with</span></div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-md">
-                            <button class="flex items-center justify-center gap-sm border border-outline-variant py-md font-button text-button hover:bg-surface-container transition-all uppercase tracking-widest" type="button">
-                                <span class="material-symbols-outlined" data-icon="google">google</span> GOOGLE
-                            </button>
-                            <button class="flex items-center justify-center gap-sm border border-outline-variant py-md font-button text-button hover:bg-surface-container transition-all uppercase tracking-widest" type="button">
-                                <span class="material-symbols-outlined" data-icon="apple" data-weight="fill" style="font-variation-settings: 'FILL' 1;">ios</span> APPLE
-                            </button>
-                        </div>
+                        <button class="flex items-center justify-center gap-sm py-3 px-4 border border-outline-variant rounded-lg font-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors cursor-pointer hover:cursor-pointer" type="button">
+                            <span class="material-symbols-outlined text-[#1877F2]" data-icon="facebook" style="font-variation-settings: 'FILL' 1;">social_leaderboard</span>
+                            Facebook
+                        </button>
                     </div>
                 </form>
-                <footer class="mt-xl text-center">
-                    <p class="font-body-md text-body-md text-on-surface-variant">
-                        ALREADY HAVE AN ACCOUNT?
-                        <a class="text-primary font-semibold hover:underline transition-all underline-offset-4 ml-xs" href="#">SIGN IN</a>
-                    </p>
-                </footer>
+                <div class="mt-xl text-center md:hidden">
+                    <span class="font-label-md text-on-surface-variant">Đã có tài khoản?</span>
+                    <a class="font-label-md text-primary font-bold ml-1" href="/login">Đăng nhập</a>
+                </div>
             </div>
         </div>
-    </main>
-    <!-- Contextual Mini Footer (Since the main shell is suppressed) -->
-    <footer class="bg-surface border-t border-outline-variant/30 py-lg">
-        <div class="max-w-container-max mx-auto px-md md:px-xl flex flex-col md:flex-row justify-between items-center gap-md">
-            <div class="font-h3 text-h3 text-primary">ATELIER</div>
-            <div class="flex gap-lg flex-wrap justify-center">
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline" href="#">Support</a>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline" href="#">Shipping</a>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors underline" href="#">Sustainability</a>
-            </div>
-            <div class="font-body-sm text-body-sm text-on-surface-variant opacity-60">
-                © 2024 ATELIER MINIMALIST. ALL RIGHTS RESERVED.
-            </div>
-        </div>
-    </footer>
-</body>
-
-</html>
+    </div>
+</main>

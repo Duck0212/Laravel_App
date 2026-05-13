@@ -1,382 +1,247 @@
-<!DOCTYPE html>
+@extends('layouts.master')
 
-<html class="light" lang="en">
+@section('title', 'category')
 
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>ATELIER | Seasonal Essentials</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&amp;family=Montserrat:wght@400;500;600&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-container-high": "#ebe7e6",
-                        "secondary-container": "#dfe0e0",
-                        "surface-variant": "#e5e2e1",
-                        "surface": "#fdf8f8",
-                        "surface-dim": "#ddd9d8",
-                        "on-surface": "#1c1b1b",
-                        "on-primary": "#ffffff",
-                        "on-error-container": "#93000a",
-                        "on-secondary-fixed-variant": "#454747",
-                        "on-tertiary-fixed": "#241a00",
-                        "background": "#fdf8f8",
-                        "surface-bright": "#fdf8f8",
-                        "on-tertiary-fixed-variant": "#574500",
-                        "secondary-fixed": "#e2e2e2",
-                        "primary-fixed": "#e5e2e1",
-                        "on-primary-container": "#858383",
-                        "secondary-fixed-dim": "#c6c6c7",
-                        "surface-tint": "#5f5e5e",
-                        "outline": "#747878",
-                        "on-secondary": "#ffffff",
-                        "secondary": "#5d5f5f",
-                        "on-background": "#1c1b1b",
-                        "on-primary-fixed-variant": "#474746",
-                        "primary": "#000000",
-                        "surface-container": "#f1edec",
-                        "tertiary-fixed-dim": "#e9c349",
-                        "on-secondary-fixed": "#1a1c1c",
-                        "tertiary-fixed": "#ffe088",
-                        "on-tertiary-container": "#4f3e00",
-                        "error": "#ba1a1a",
-                        "on-tertiary": "#ffffff",
-                        "on-secondary-container": "#616363",
-                        "on-primary-fixed": "#1c1b1b",
-                        "primary-fixed-dim": "#c8c6c5",
-                        "tertiary-container": "#cca730",
-                        "outline-variant": "#c4c7c7",
-                        "surface-container-low": "#f7f3f2",
-                        "primary-container": "#1c1b1b",
-                        "on-error": "#ffffff",
-                        "inverse-primary": "#c8c6c5",
-                        "surface-container-lowest": "#ffffff",
-                        "inverse-on-surface": "#f4f0ef",
-                        "inverse-surface": "#313030",
-                        "on-surface-variant": "#444748",
-                        "error-container": "#ffdad6",
-                        "surface-container-highest": "#e5e2e1",
-                        "tertiary": "#735c00"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "md": "24px",
-                        "lg": "48px",
-                        "sm": "12px",
-                        "gutter": "24px",
-                        "xl": "80px",
-                        "container-max": "1440px",
-                        "xs": "4px",
-                        "base": "8px"
-                    },
-                    "fontFamily": {
-                        "h2": ["Playfair Display"],
-                        "button": ["Montserrat"],
-                        "h1": ["Playfair Display"],
-                        "body-sm": ["Montserrat"],
-                        "body-md": ["Montserrat"],
-                        "body-lg": ["Montserrat"],
-                        "label-caps": ["Montserrat"],
-                        "h3": ["Playfair Display"]
-                    },
-                    "fontSize": {
-                        "h2": ["32px", {
-                            "lineHeight": "1.3",
-                            "letterSpacing": "0em",
-                            "fontWeight": "500"
-                        }],
-                        "button": ["14px", {
-                            "lineHeight": "1.0",
-                            "letterSpacing": "0.05em",
-                            "fontWeight": "500"
-                        }],
-                        "h1": ["48px", {
-                            "lineHeight": "1.2",
-                            "letterSpacing": "-0.01em",
-                            "fontWeight": "600"
-                        }],
-                        "body-sm": ["14px", {
-                            "lineHeight": "1.5",
-                            "letterSpacing": "0.02em",
-                            "fontWeight": "400"
-                        }],
-                        "body-md": ["16px", {
-                            "lineHeight": "1.6",
-                            "letterSpacing": "0.01em",
-                            "fontWeight": "400"
-                        }],
-                        "body-lg": ["18px", {
-                            "lineHeight": "1.6",
-                            "letterSpacing": "0.01em",
-                            "fontWeight": "400"
-                        }],
-                        "label-caps": ["12px", {
-                            "lineHeight": "1.0",
-                            "letterSpacing": "0.1em",
-                            "fontWeight": "600"
-                        }],
-                        "h3": ["24px", {
-                            "lineHeight": "1.4",
-                            "letterSpacing": "0.01em",
-                            "fontWeight": "500"
-                        }]
-                    }
-                },
-            },
-        }
-    </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-        }
-
-        body {
-            background-color: #fdf8f8;
-            color: #1c1b1b;
-        }
-
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-
-        .product-card-hover:hover .quick-add {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-</head>
-
-<body class="font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
-    <!-- TopNavBar -->
-    <nav class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30">
-        <div class="max-w-container-max mx-auto flex justify-between items-center h-20 px-md md:px-xl">
-            <div class="flex-1 hidden md:flex gap-md">
-                <a class="font-label-caps text-label-caps tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">New In</a>
-                <a class="font-label-caps text-label-caps tracking-widest uppercase text-primary border-b border-primary pb-1" href="#">Collections</a>
-                <a class="font-label-caps text-label-caps tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Designers</a>
-                <a class="font-label-caps text-label-caps tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Journal</a>
-                <a class="font-label-caps text-label-caps tracking-widest uppercase text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Archive</a>
-            </div>
-            <div class="flex-1 md:text-center">
-                <h1 class="font-h2 text-h2 tracking-tighter text-primary">ATELIER</h1>
-            </div>
-            <div class="flex-1 flex justify-end items-center gap-md">
-                <button class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform" data-icon="search">search</button>
-                <button class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform" data-icon="person">person</button>
-                <button class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform" data-icon="shopping_bag">shopping_bag</button>
-                <button class="md:hidden material-symbols-outlined text-primary" data-icon="menu">menu</button>
+@section('content')
+<main class="max-w-[1280px] mx-auto px-margin-mobile md:px-margin-desktop py-base">
+    <!-- Category Banner -->
+    <section class="relative w-full h-[300px] md:h-[400px] rounded-xl overflow-hidden mb-lg">
+        <img alt="Tropical Fruits Banner" class="w-full h-full object-cover" data-alt="A lush and vibrant collection of tropical fruits including sliced dragon fruit, golden mangoes, and ruby red papayas arranged on a clean white marble surface. The lighting is bright and natural, casting soft shadows that emphasize the juicy texture and peak ripeness of the produce. The overall aesthetic is high-end and organic, mirroring the FreshHarvest brand colors of deep greens and vibrant oranges in a modern minimalist setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu9a20euMsGncjyopVbvm3Bfoikdk3MV57HkyFyBFR4Ggz5S5sdcPi2nhUQabHkWsvNanG66PB36jTozgsCrtd72iznXMb9MdFlG_uISwj8a070Kk7VkvLvtCAUrItK2MCHyyTjcm8NrYQzKqOu0D81sRXph6djd_pbDcGmOJPaQzCOX1SGuuulGJYgXuq3r0pJwqF4mYsp29hFvdG6TgWSYRDrBfoghcNUuIJtntOI2mcfTIbWDjYmPWdSJk-1oyIHkPliPMhxpU" />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent flex items-center p-md md:p-xl">
+            <div class="max-w-md">
+                <h1 class="font-display-lg text-white mb-sm">Trái cây nhiệt đới</h1>
+                <p class="font-body-lg text-white/90 mb-md">Thưởng thức hương vị rực rỡ của thiên đường với bộ sưu tập trái cây nhiệt đới tươi sạch, được tuyển chọn kỹ lưỡng từ những nông trại hữu cơ hàng đầu.</p>
+                <div class="flex gap-sm">
+                    <span class="bg-primary text-white px-4 py-2 rounded-full font-label-md flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-[18px]">verified</span>
+                        Organic Certified
+                    </span>
+                </div>
             </div>
         </div>
-    </nav>
-    <main class="pt-20">
-        <!-- Hero Section -->
-        <header class="py-xl px-md md:px-xl max-w-container-max mx-auto text-center">
-            <span class="font-label-caps text-label-caps tracking-widest uppercase text-on-surface-variant block mb-sm">Summer 2024</span>
-            <h2 class="font-h1 text-h1 text-primary mb-md">Seasonal Essentials</h2>
-            <p class="max-w-2xl mx-auto font-body-lg text-body-lg text-on-surface-variant">
-                A curated selection of timeless silhouettes, crafted from premium sustainable fabrics to endure through the seasons. Designed with meticulous attention to detail and a commitment to quiet luxury.
-            </p>
-        </header>
-        <!-- Filter and Sort Bar -->
-        <section class="border-y border-outline-variant/30 sticky top-20 bg-surface z-40">
-            <div class="max-w-container-max mx-auto px-md md:px-xl h-16 flex items-center justify-between">
-                <div class="flex items-center gap-lg overflow-x-auto hide-scrollbar">
-                    <div class="flex items-center gap-xs cursor-pointer hover:opacity-70 transition-opacity">
-                        <span class="font-label-caps text-label-caps uppercase">Color</span>
-                        <span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
-                    </div>
-                    <div class="flex items-center gap-xs cursor-pointer hover:opacity-70 transition-opacity">
-                        <span class="font-label-caps text-label-caps uppercase">Size</span>
-                        <span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
-                    </div>
-                    <div class="flex items-center gap-xs cursor-pointer hover:opacity-70 transition-opacity">
-                        <span class="font-label-caps text-label-caps uppercase">Price Range</span>
-                        <span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
-                    </div>
-                    <div class="flex items-center gap-xs cursor-pointer hover:opacity-70 transition-opacity">
-                        <span class="font-label-caps text-label-caps uppercase">Fabric</span>
-                        <span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+    </section>
+    <div class="flex flex-col md:flex-row gap-gutter">
+        <!-- Filter Sidebar -->
+        <aside class="w-full md:w-64 flex-shrink-0 space-y-lg">
+            <!-- Mobile Filter Toggle (Visible on Mobile) -->
+            <button class="md:hidden flex items-center justify-between w-full p-4 bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] cursor-pointer hover:cursor-pointer">
+                <span class="font-headline-sm">Bộ lọc</span>
+                <span class="material-symbols-outlined">filter_list</span>
+            </button>
+            <!-- Filter Groups -->
+            <div class="hidden md:block space-y-md">
+                <!-- Category Filter -->
+                <div class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+                    <h3 class="font-headline-sm mb-md text-on-surface">Loại trái cây</h3>
+                    <div class="space-y-sm">
+                        <label class="flex items-center gap-sm cursor-pointer group">
+                            <input checked="" class="rounded border-outline text-primary focus:ring-primary h-5 w-5" type="checkbox" />
+                            <span class="font-body-md text-on-surface-variant group-hover:text-primary transition-colors">Tất cả nhiệt đới</span>
+                        </label>
+                        <label class="flex items-center gap-sm cursor-pointer group">
+                            <input class="rounded border-outline text-primary focus:ring-primary h-5 w-5" type="checkbox" />
+                            <span class="font-body-md text-on-surface-variant group-hover:text-primary transition-colors">Xoài Cát Hòa Lộc</span>
+                        </label>
+                        <label class="flex items-center gap-sm cursor-pointer group">
+                            <input class="rounded border-outline text-primary focus:ring-primary h-5 w-5" type="checkbox" />
+                            <span class="font-body-md text-on-surface-variant group-hover:text-primary transition-colors">Thanh long đỏ</span>
+                        </label>
+                        <label class="flex items-center gap-sm cursor-pointer group">
+                            <input class="rounded border-outline text-primary focus:ring-primary h-5 w-5" type="checkbox" />
+                            <span class="font-body-md text-on-surface-variant group-hover:text-primary transition-colors">Dứa mật</span>
+                        </label>
+                        <label class="flex items-center gap-sm cursor-pointer group">
+                            <input class="rounded border-outline text-primary focus:ring-primary h-5 w-5" type="checkbox" />
+                            <span class="font-body-md text-on-surface-variant group-hover:text-primary transition-colors">Bơ sáp</span>
+                        </label>
                     </div>
                 </div>
-                <div class="flex items-center gap-sm">
-                    <span class="hidden md:block font-body-sm text-body-sm text-on-surface-variant italic">Showing 42 Items</span>
-                    <button class="flex items-center gap-xs cursor-pointer">
-                        <span class="font-label-caps text-label-caps uppercase">Sort By</span>
-                        <span class="material-symbols-outlined text-sm" data-icon="sort">sort</span>
-                    </button>
+                <!-- Price Filter -->
+                <div class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+                    <h3 class="font-headline-sm mb-md text-on-surface">Giá (VNĐ)</h3>
+                    <div class="px-2">
+                        <input class="w-full accent-primary" max="500000" min="0" type="range" />
+                        <div class="flex justify-between mt-sm text-on-surface-variant font-label-sm">
+                            <span>0đ</span>
+                            <span>500k+</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Freshness Badge -->
+                <div class="bg-surface-container-lowest p-md rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)]">
+                    <h3 class="font-headline-sm mb-md text-on-surface">Độ tươi mới</h3>
+                    <div class="space-y-sm">
+                        <label class="flex items-center gap-sm cursor-pointer group">
+                            <input checked="" class="border-outline text-primary focus:ring-primary h-5 w-5" name="freshness" type="radio" />
+                            <span class="font-body-md text-on-surface-variant">Trong ngày (Today)</span>
+                        </label>
+                        <label class="flex items-center gap-sm cursor-pointer group">
+                            <input class="border-outline text-primary focus:ring-primary h-5 w-5" name="freshness" type="radio" />
+                            <span class="font-body-md text-on-surface-variant">24h qua</span>
+                        </label>
+                    </div>
                 </div>
             </div>
-        </section>
-        <!-- Product Grid -->
-        <section class="max-w-container-max mx-auto px-md md:px-xl py-xl">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-x-gutter gap-y-xl">
-                <!-- Product 1 -->
-                <div class="group cursor-pointer product-card-hover">
-                    <div class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-md">
-                        <img alt="Luxury linen dress" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A high-fashion studio shot of a woman wearing a floor-length minimalist cream linen dress. The lighting is soft and directional, creating gentle shadows that emphasize the premium fabric texture. The background is a clean, neutral off-white, maintaining a quiet luxury aesthetic. The mood is sophisticated and serene, capturing the essence of minimalist editorial fashion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_ZDFgCrwCLtJJIgP47Z-fHC1Len2ndbFm66NK0zoaA1X03rQfKIh_S2dXwL8n9HzVPRPgjmUCKqTFaFty3Rwo7TP3wy8LlbBOOtMCTrRofqd_EWzwNb4gDhZ8kgA4Lq6BXMvMsEZ-EbELMfAcUXQ6mMSUySvI01LKxd95JoZ0djxldg7fIO044-Rvc7-0moT4Qn10yobhtqNAdH03qwcAmspplr6y70tm-3F65y71IJntjpvgx8MgdhVBi-Mwjgk3h435zcG47f8A" />
-                        <div class="quick-add absolute bottom-0 left-0 w-full bg-white/80 backdrop-blur-sm py-4 text-center translate-y-full opacity-0 transition-all duration-300 font-button text-button uppercase tracking-widest">
-                            Quick Add
+        </aside>
+        <!-- Product Grid Area -->
+        <div class="flex-grow">
+            <!-- Toolbar -->
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-md gap-sm">
+                <p class="font-body-md text-on-surface-variant">Hiển thị <span class="font-bold text-primary">12</span> trên <span class="font-bold">48</span> sản phẩm</p>
+                <div class="flex items-center gap-md">
+                    <span class="font-label-md text-on-surface-variant">Sắp xếp:</span>
+                    <select class="bg-surface-container-low border-none rounded-full px-md py-2 font-label-md text-on-surface focus:ring-primary">
+                        <option>Mới nhất</option>
+                        <option>Giá thấp đến cao</option>
+                        <option>Giá cao đến thấp</option>
+                        <option>Phổ biến nhất</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+                <!-- Product Card 1 -->
+                <div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:scale-[1.02]">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img alt="Dứa mật organic" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A close-up photograph of a perfectly ripe, golden pineapple with its textured, geometric skin, sitting against a soft, neutral-toned background. The lighting is crisp and detailed, highlighting the golden hues of the fruit and the sharp green of its crown. The image conveys a sense of premium quality and natural sweetness, styled with the professional, minimalist look of high-end organic groceries." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUfIEeMTocIpz5eMU_asZnR12hLSt6mBlWo5OFOX5jIjdvWXO2T5KbLxUlV5sAGRYkXK0dl1Gy_hQ8r-hIIz9mKy_dxyeYDC0PVa690_XbDc2wbqHoMdTYCY2rQuB52KME8LHD1glL6ePmwAPhsu8yeDCOImhInQGhraM3sv3OR_7OPAQltd4PrC6R51YbdvXFxnxs1gCrphZV_sMKsfCMC9HSGhqKaC9p_ZxXWKhf2hmnapo1IJirZGAa9JQg_7BuJEMUIl45ezY" />
+                        <div class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">Mới về</div>
+                        <div class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md">
+                            <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">eco</span>
                         </div>
                     </div>
-                    <div class="space-y-1">
-                        <h3 class="font-h3 text-h3 text-primary">Sculpted Linen Maxi</h3>
-                        <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Raw Silk Blend</p>
-                        <p class="font-body-md text-body-md text-primary mt-2">$420.00</p>
+                    <div class="p-md">
+                        <h3 class="font-headline-sm text-on-surface mb-xs">Dứa Mật Organic MD2</h3>
+                        <p class="font-body-md text-on-surface-variant mb-md">Vị ngọt thanh, mọng nước, giàu Vitamin C từ vùng cao nguyên.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="font-headline-md text-primary">85.000đ</span>
+                                <span class="font-label-sm text-on-surface-variant block">/ 1 Trái (~1.2kg)</span>
+                            </div>
+                            <button class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center hover:bg-primary-container transition-colors shadow-md cursor-pointer hover:cursor-pointer">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <!-- Product 2 -->
-                <div class="group cursor-pointer product-card-hover">
-                    <div class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-md">
-                        <img alt="Oversized tailored blazer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A sophisticated editorial photograph of a tailored oversized blazer in deep charcoal black, draped over a minimalist mannequin against a soft gray architectural background. The image uses high-contrast lighting to highlight the precision of the stitching and the luxurious weight of the wool fabric. The aesthetic is modern, professional, and understated, reflecting a high-end fashion catalog style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJsXkSpE2_Biro7kLHlJCu5gBBd7BlIvAqo2jZBCYBxurYxC-SLmjQksz8sWImUf67SepQqBRlFLDJnGO5Gp85_nHqCZwINkJ_IAUlY-eRW_HP9659ixJay54H99b7I3dxF8JvL6Y0UwMyLj1OWZxOHlvz5af1JDvC6ExFXjCykEGNJadeezl7ADqFdy9uUFj4pEbji_jA8YX7C5Ag-qjb849_pEA4eQbE6zPR3dbx3ogKEXezyKs7dQY-DKbx8qgNAEe1vdwvx6MH" />
-                        <div class="quick-add absolute bottom-0 left-0 w-full bg-white/80 backdrop-blur-sm py-4 text-center translate-y-full opacity-0 transition-all duration-300 font-button text-button uppercase tracking-widest">
-                            Quick Add
-                        </div>
+                <!-- Product Card 2 -->
+                <div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:scale-[1.02]">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img alt="Xoài Cát Hòa Lộc" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A collection of smooth, yellow, sun-ripened mangoes arranged beautifully on a rustic wooden platter. The lighting is warm and directional, accentuating the elegant curves of the fruit and their rich, saturated yellow color. One mango is sliced to reveal the fibrous, juicy flesh inside. The scene is clean, airy, and professional, embodying the vibrant organic vitality of the FreshHarvest brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8QJwRaPXC2nvraeU1BaFsNNqiNCcGWDumVk9N4e9tiHu0jXm9v5ojh8q_pZTtZmc3i7RVkLD9OpOb5lifsT408RmuHv4U7Y7C8iZBU1R283IlVEQk0j3LCQthqkwoRPSCZH9_XXq5r4-MvZV3FRwVwidQaG6n-fVKbPdarMdumc3rVnTaD0NfASKptRP_Ps8U3oFltXcDvRtFRGDivptAJPvbpJc0HvP9hBynD-yBys4fRIdeTeskdqWiEJeE6lCoMgzX1zU01mg" />
+                        <div class="absolute top-4 left-4 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">Bán chạy</div>
                     </div>
-                    <div class="space-y-1">
-                        <h3 class="font-h3 text-h3 text-primary">Architectural Blazer</h3>
-                        <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Italian Merino Wool</p>
-                        <p class="font-body-md text-body-md text-primary mt-2">$850.00</p>
+                    <div class="p-md">
+                        <h3 class="font-headline-sm text-on-surface mb-xs">Xoài Cát Hòa Lộc Loại I</h3>
+                        <p class="font-body-md text-on-surface-variant mb-md">Thơm lừng, thịt dẻo, vị ngọt đậm đà danh tiếng Nam Bộ.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="font-headline-md text-primary">120.000đ</span>
+                                <span class="font-label-sm text-on-surface-variant block">/ Kg</span>
+                            </div>
+                            <button class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center hover:bg-primary-container transition-colors shadow-md cursor-pointer hover:cursor-pointer">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <!-- Product 3 -->
-                <div class="group cursor-pointer product-card-hover">
-                    <div class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-md">
-                        <img alt="Minimalist leather sandals" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up, artistic shot of handcrafted minimalist leather sandals placed on a smooth, sun-drenched stone surface. The lighting is warm and natural, evoking a summer morning in the Mediterranean. The focus is sharp on the grain of the fine black leather and the clean lines of the design. The overall composition is balanced and peaceful, emphasizing artisanal quality and quiet luxury." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDklOrLbArg0KIzQKSDgTLIaVyIQk7CATEVeNhkczJj8JlfWzSyMKYhDzhvL2YDgIVZjBGbqcx17AsJ6iLiR6h6rDWwHkgDGc5Wq9tynaS7iqDItzvyU1HNSImOj0mnufwvTVaG_y4End3V9WissBGGV7LJQiW2H-t4-7WMteVDU5Jcs3KEZ09nzCkCsru-5PWdufGuMzkGjwb2rU7ipPzfClu70xW98SHznC2ZKBkAiTdSx-xBop9Jb7JSpN1M83qSt0EbQeo-rjz" />
-                        <div class="quick-add absolute bottom-0 left-0 w-full bg-white/80 backdrop-blur-sm py-4 text-center translate-y-full opacity-0 transition-all duration-300 font-button text-button uppercase tracking-widest">
-                            Quick Add
+                <!-- Product Card 3 -->
+                <div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:scale-[1.02]">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img alt="Thanh Long Ruột Đỏ" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Sliced dragon fruit with vibrant pink skin and deep fuchsia flesh speckled with tiny black seeds. The fruit is presented on a minimalist ceramic plate under bright, clinical yet soft studio lighting. The high saturation of the fruit's color contrasts beautifully with the white space, creating a visual that feels energetic and healthy. This image follows the modern minimalist aesthetic of a high-end health product gallery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPy5jqxnIxhBYaCLiuClt7i66kw9gLTj2Kd_2VR4jMvCSMsfribC0prE0wMjuJx4QzmOYxUqGzn4j0rpI_0AlSg25t1tQ1VCLfnEQfGw-KOAPknJd-krAQndjkRIk117dYOYIKixkelNu5dkjfq5CYA9HKrFiexNKv--KaocAbjrSzIQyUVj8yItRUvW38J6htY1toFcUjDGFxnDy5ajAmSuQQ0AxnrIo4cviPb3hrclC-v4kLukAtduyv7D5EYd0jXojFkgmdQB0" />
+                        <div class="absolute top-4 right-4 w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-md">
+                            <span class="material-symbols-outlined text-primary text-[20px]" style="font-variation-settings: 'FILL' 1;">leaf_spark</span>
                         </div>
                     </div>
-                    <div class="space-y-1">
-                        <h3 class="font-h3 text-h3 text-primary">The Monolith Sandal</h3>
-                        <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Calfskin Leather</p>
-                        <p class="font-body-md text-body-md text-primary mt-2">$290.00</p>
+                    <div class="p-md">
+                        <h3 class="font-headline-sm text-on-surface mb-xs">Thanh Long Ruột Đỏ</h3>
+                        <p class="font-body-md text-on-surface-variant mb-md">Vị ngọt thanh dịu, giàu chất chống oxy hóa tự nhiên.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="font-headline-md text-primary">55.000đ</span>
+                                <span class="font-label-sm text-on-surface-variant block">/ Kg</span>
+                            </div>
+                            <button class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center hover:bg-primary-container transition-colors shadow-md cursor-pointer hover:cursor-pointer">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <!-- Product 4 -->
-                <div class="group cursor-pointer product-card-hover">
-                    <div class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-md">
-                        <img alt="Wide leg trousers" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="An editorial full-body shot of a model wearing wide-leg fluid trousers in a soft taupe color. The trousers are styled with a simple white ribbed tank top, emphasizing the silhouette and the way the fabric moves. The setting is a minimalist concrete studio with soft, diffused daylight. The image conveys a sense of effortless elegance and modern comfort in a monochromatic color palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDQFqPXdwIpdi37urCh5jmv4gVZTNMgTk7viYl4bnzMMQ3wEpCN5BvUcWrA9396kV5MN5dY4x3_PiKTKPfdiDMEph2tDvjOX2DlwMB05WjifwibWKUCOlGLDYy2xCCtIe6Lnwi5SilN7EqQTDps6qh97eu1rp2jgTrBxBeEJjVwY4uFqyKkM-skpAD1O4i5CFsgzB65_qHssiXwAoT8IxrWPBYPzlbo60uqJIKxhQ--bWwG6hWk3-y75E--QnMfXJyBTwglsKpfT3B" />
-                        <div class="quick-add absolute bottom-0 left-0 w-full bg-white/80 backdrop-blur-sm py-4 text-center translate-y-full opacity-0 transition-all duration-300 font-button text-button uppercase tracking-widest">
-                            Quick Add
-                        </div>
+                <!-- Repeat for 6 items total -->
+                <!-- Product Card 4 -->
+                <div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:scale-[1.02]">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img alt="Bơ Sáp Đăk Lăk" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Close up of a halved avocado showing a large, smooth pit and creamy yellow-green flesh. The avocado has dark, bumpy skin and is set on a light gray, textured surface that evokes a clean, unprocessed quality. The lighting is diffused, giving the image a soft-tactile feel. The overall composition is spacious and clean, prioritizing the natural purity and high-quality texture of the organic produce." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASoTZvyhsaUZO3IKNvgNUlmqfgXKuaMHMRiFJ5TJM8sfq7PCN4EroFlL_8qMBonTWgtQ163xxiPO3za3hUlS4l0wriHjxiSET4HZfNtP4H4C7V6K5XCRIq4vKhaS4jF_XIi31QcOoot_eZ04qU76xr9HollCY1vtaQlmQB0r1FLj7zJ8uTRe65lbxSaS_S2RYZajj7ZbMVD1VAnLdDo8xaGMzVeBq3sXmyJ8JX0mc6IytUvyPmSM7iEvIHyyaCsyAC3pGuhiM82Mw" />
                     </div>
-                    <div class="space-y-1">
-                        <h3 class="font-h3 text-h3 text-primary">Fluid Wide-Leg Trouser</h3>
-                        <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Tencel Twill</p>
-                        <p class="font-body-md text-body-md text-primary mt-2">$310.00</p>
+                    <div class="p-md">
+                        <h3 class="font-headline-sm text-on-surface mb-xs">Bơ Sáp Đăk Lăk</h3>
+                        <p class="font-body-md text-on-surface-variant mb-md">Cơm vàng dẻo, béo ngậy, hạt nhỏ, không xơ từ Tây Nguyên.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="font-headline-md text-primary">95.000đ</span>
+                                <span class="font-label-sm text-on-surface-variant block">/ Kg</span>
+                            </div>
+                            <button class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center hover:bg-primary-container transition-colors shadow-md cursor-pointer hover:cursor-pointer">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <!-- Product 5 -->
-                <div class="group cursor-pointer product-card-hover">
-                    <div class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-md">
-                        <img alt="Silk slip top" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A delicate, close-up image of a shimmering silk camisole in a pearlescent white tone hanging on a thin wooden hanger against a dark charcoal background. The low-key lighting creates a dramatic contrast, highlighting the liquid-like sheen of the silk and the thin adjustable straps. The aesthetic is intimate, luxurious, and refined, focusing on material excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1v-x0LihJmuWpN9zRRQzhjhBAEDDjcGmDPdXjgXCb7pu1166KPS8V_dDpcwqvDgp6PImwDtPkhp0kjZt5ooEDbRJ_zpxsMskIBwta_CHYshZgCT4_2G79xe5ZG7kSFN6d1Z_U22p8rVIqcDwtjXpkeOTlTk-QHhYJm7Ele8C_aY16WwDpEMtkN26QRDEDZ2rzUjQ4ZtONrz7esFmYoHY0HcbeSLPEr13uDCNwcyHfRDXj6nmuxmzlYg5ixdDMYF5JgolKgESZimAJ" />
-                        <div class="quick-add absolute bottom-0 left-0 w-full bg-white/80 backdrop-blur-sm py-4 text-center translate-y-full opacity-0 transition-all duration-300 font-button text-button uppercase tracking-widest">
-                            Quick Add
-                        </div>
+                <!-- Product Card 5 -->
+                <div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:scale-[1.02]">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img alt="Đu đủ Organic" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A sliced papaya on a white background, displaying its bright orange flesh and shiny black seeds. The image is high-fidelity and captured with a macro lens to emphasize the freshness and succulent nature of the fruit. The lighting is bright and even, reinforcing the brand's pillar of purity and clean, unprocessed quality. The aesthetic is contemporary and gallery-like, focusing entirely on the product's natural vibrancy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiYf6ePfahQB7duSNB-_DQAeZUrPpThjTfNgTT-PwXpFa_r25WJJjgxppxrNobxd6POybDhbK2hDKd2_5naKD2X2SsdOm-Z4jcEHP_5LZX0fxpXQw4Wllu7h56QlysrypziP7k6IRv_GH14hv6Y3K8Kg_6xdTcFEgRijM_CD265LIq9j7tCOHPoCbBBz-SF3rTz8FdJfLXIoDWIni_DlnhS2ShRHZWN-ssTgLH6JqPTrzz0eJKGiRh_DkrrzKznbxk7XNt1Vfi7vg" />
+                        <div class="absolute top-4 left-4 bg-tertiary text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">Giảm 15%</div>
                     </div>
-                    <div class="space-y-1">
-                        <h3 class="font-h3 text-h3 text-primary">Liquid Silk Camisole</h3>
-                        <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">100% Mulberry Silk</p>
-                        <p class="font-body-md text-body-md text-primary mt-2">$185.00</p>
+                    <div class="p-md">
+                        <h3 class="font-headline-sm text-on-surface mb-xs">Đu Đủ Ruột Gấc</h3>
+                        <p class="font-body-md text-on-surface-variant mb-md">Ngọt lịm, giàu Beta-carotene, tốt cho mắt và tiêu hóa.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <div class="flex items-center gap-sm">
+                                    <span class="font-headline-md text-primary">42.000đ</span>
+                                    <span class="text-on-surface-variant line-through text-[14px]">50.000đ</span>
+                                </div>
+                                <span class="font-label-sm text-on-surface-variant block">/ Kg</span>
+                            </div>
+                            <button class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center hover:bg-primary-container transition-colors shadow-md cursor-pointer hover:cursor-pointer">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <!-- Product 6 -->
-                <div class="group cursor-pointer product-card-hover">
-                    <div class="relative overflow-hidden aspect-[3/4] bg-surface-container-low mb-md">
-                        <img alt="Knitted wool sweater" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A beautiful detail shot of a chunky, hand-knitted oversized sweater in a deep oatmeal hue. The lighting is high-key and soft, showing the intricate cable knit patterns and the fuzzy texture of the wool. The background is a minimalist light wood surface. The mood is cozy yet high-end, representing a modern take on heritage knitwear in a clean, minimalist setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCCU1kXtivqqRCkfmX9-D4vMhCmIkHODOl3T8LK1ab59kb7Yb0E0VNit7S4ObwPKB_M0oSrzuMcZKT8pZAv1ccBThkMTAevtuyg2_73CT_hH-A4bkfIhNJRlrMqCBZ8Gr1F5ED6kXEoP4GbC8CzeV8ysCFjwTsDpStnbCVityNwlxLMYkef9suYJBohh5qX9MjBz3o_YuvvryGE50S_DdQ4QewXmvRkxNHWxvIH7CBbtIu3Ruslard09KLUHOZNbmK09I_GwKn9fL1C" />
-                        <div class="quick-add absolute bottom-0 left-0 w-full bg-white/80 backdrop-blur-sm py-4 text-center translate-y-full opacity-0 transition-all duration-300 font-button text-button uppercase tracking-widest">
-                            Quick Add
-                        </div>
+                <!-- Product Card 6 -->
+                <div class="group bg-surface-container-lowest rounded-xl overflow-hidden shadow-[0px_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0px_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:scale-[1.02]">
+                    <div class="relative aspect-[4/5] overflow-hidden">
+                        <img alt="Chuối Ngự Organic" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A bunch of small, premium yellow bananas, known as royal bananas, neatly arranged on a clean wooden table. The lighting is soft and bright, highlighting the flawless skins of the organic produce. The setting is domestic and approachable, yet sophisticated. The image captures the peak ripeness and vibrant lushness that defines the FreshHarvest shopping experience, utilizing high-fidelity photography as the main decorative element." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaHn7ByF5zmzuYvKz9Bl2-B--4u13Jj0WW3DC0NDKb8F10DPqEgScYC9qqKfofgxDElbrD_CKAU1KqkuX_nITYOW5UL6Z7EBhYGO_zO0dW6wrfbs5hU19lVKC9xsZoh3yE5begVQEzfrA_gkrYzm4ioqLSVSfQHoDhNfSx9E8OZl4BKT2iSsJE_CTa1CaG-0yJ65Y3UdHVlThD4A3-U82IZ3eNnYApMuynMQO4LCw3CWYbmU6iHWO9pdxshPcIf1KtBnHWLc0jGTo" />
                     </div>
-                    <div class="space-y-1">
-                        <h3 class="font-h3 text-h3 text-primary">Heritage Cable Knit</h3>
-                        <p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Organic Highland Wool</p>
-                        <p class="font-body-md text-body-md text-primary mt-2">$540.00</p>
+                    <div class="p-md">
+                        <h3 class="font-headline-sm text-on-surface mb-xs">Chuối Ngự Organic</h3>
+                        <p class="font-body-md text-on-surface-variant mb-md">Chuối nhỏ, vỏ mỏng, mùi thơm nồng nàn, vị ngọt thanh.</p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="font-headline-md text-primary">35.000đ</span>
+                                <span class="font-label-sm text-on-surface-variant block">/ Nải (~1kg)</span>
+                            </div>
+                            <button class="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center hover:bg-primary-container transition-colors shadow-md cursor-pointer hover:cursor-pointer">
+                                <span class="material-symbols-outlined">add_shopping_cart</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
             <!-- Pagination -->
-            <div class="mt-xl flex items-center justify-center gap-md border-t border-outline-variant/30 pt-lg">
-                <button class="material-symbols-outlined text-on-surface-variant" data-icon="chevron_left">chevron_left</button>
-                <div class="flex gap-md">
-                    <span class="font-label-caps text-label-caps text-primary border-b border-primary">1</span>
-                    <span class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary cursor-pointer transition-colors">2</span>
-                    <span class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary cursor-pointer transition-colors">3</span>
-                    <span class="font-label-caps text-label-caps text-on-surface-variant">...</span>
-                    <span class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary cursor-pointer transition-colors">8</span>
-                </div>
-                <button class="material-symbols-outlined text-on-surface-variant hover:text-primary" data-icon="chevron_right">chevron_right</button>
-            </div>
-        </section>
-        <!-- Newsletter / Editorial Component -->
-        <section class="bg-surface-container py-xl">
-            <div class="max-w-container-max mx-auto px-md md:px-xl grid grid-cols-1 md:grid-cols-2 items-center gap-xl">
-                <div>
-                    <h2 class="font-h2 text-h2 text-primary mb-md">The Journal: Designing Permanence</h2>
-                    <p class="font-body-lg text-body-lg text-on-surface-variant mb-lg">
-                        Read our latest piece on the intersection of modern minimalism and ethical craftsmanship. Discover the stories behind our materials and the artisans who bring them to life.
-                    </p>
-                    <button class="font-button text-button uppercase tracking-widest px-xl py-4 bg-primary text-on-primary hover:opacity-90 transition-opacity">
-                        Read More
-                    </button>
-                </div>
-                <div class="aspect-video bg-surface-dim overflow-hidden">
-                    <img alt="Behind the scenes at the atelier" class="w-full h-full object-cover grayscale" data-alt="A black and white cinematic photograph showing the hands of an artisan working with a vintage sewing machine in a sun-drenched studio. Dust particles dance in the light rays coming through large industrial windows. The scene is quiet and focused, emphasizing the slow fashion movement and the artisanal dedication to quality. The background shows rolls of premium fabric and minimalist sketches pinned to a wall." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkGcR1rDi3TM_BlNid3VMnWjpDx6wbFePQr3ihQMkqE7n3MQ67XcZFcDLoQv2-Wna62US_kp-uYuylpQY5vz7Sz7eBrnAavGL3A2yN-DDme1UpGwjgGPmbfC_QiTCwPxAUatFmoO7_kIgOkkGpHaPwq9h2w-IxIyNEcy5SVNB1hjuocdWcQJvLGnxNj9AqTUC6olbJOLLV-jd7ffV-NLyy9tUc1M7eAbZZV3PiZ7q9OF-dbH0gN2nBLHLW525RokVeOHOPBBwExoi5" />
-                </div>
-            </div>
-        </section>
-    </main>
-    <!-- Footer -->
-    <footer class="w-full pt-xl pb-lg border-t border-outline-variant/30 bg-surface">
-        <div class="max-w-container-max mx-auto px-md md:px-xl grid grid-cols-1 md:grid-cols-4 gap-lg">
-            <div class="md:col-span-1">
-                <h3 class="font-h3 text-h3 text-primary mb-md">ATELIER</h3>
-                <p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs">
-                    Curating a lifestyle of quiet luxury and enduring design. Follow our journey towards a more sustainable and considered future.
-                </p>
-            </div>
-            <div class="flex flex-col gap-sm">
-                <h4 class="font-label-caps text-label-caps uppercase tracking-widest text-primary mb-base">Shop</h4>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-300" href="#">New In</a>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-300" href="#">Collections</a>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-300" href="#">Designers</a>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-300" href="#">Archive</a>
-            </div>
-            <div class="flex flex-col gap-sm">
-                <h4 class="font-label-caps text-label-caps uppercase tracking-widest text-primary mb-base">About</h4>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-300" href="#">About</a>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-300" href="#">Sustainability</a>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-300" href="#">Care</a>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-300" href="#">Contact</a>
-            </div>
-            <div class="flex flex-col gap-sm">
-                <h4 class="font-label-caps text-label-caps uppercase tracking-widest text-primary mb-base">Support</h4>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-300" href="#">Shipping</a>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-300" href="#">Returns</a>
-                <a class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary hover:underline transition-all duration-300" href="#">Privacy</a>
-                <div class="flex gap-md mt-sm">
-                    <span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="public">public</span>
-                    <span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer" data-icon="brand_awareness">brand_awareness</span>
-                </div>
-            </div>
+            <nav class="flex items-center justify-center gap-sm mt-xl pb-lg">
+                <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low text-on-surface-variant transition-all cursor-pointer hover:cursor-pointer">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                </button>
+                <button class="w-10 h-10 flex items-center justify-center rounded-full bg-primary text-white font-bold shadow-md cursor-pointer hover:cursor-pointer">1</button>
+                <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low text-on-surface-variant transition-all font-bold cursor-pointer hover:cursor-pointer">2</button>
+                <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low text-on-surface-variant transition-all font-bold cursor-pointer hover:cursor-pointer">3</button>
+                <span class="text-on-surface-variant">...</span>
+                <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low text-on-surface-variant transition-all font-bold cursor-pointer hover:cursor-pointer">8</button>
+                <button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low text-on-surface-variant transition-all cursor-pointer hover:cursor-pointer">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </button>
+            </nav>
         </div>
-        <div class="max-w-container-max mx-auto px-md md:px-xl mt-xl pt-lg border-t border-outline-variant/10 text-center">
-            <p class="font-body-sm text-body-sm text-on-secondary-fixed-variant tracking-wide">
-                © 2024 ATELIER MINIMALIST. ALL RIGHTS RESERVED.
-            </p>
-        </div>
-    </footer>
-</body>
-
-</html>
+    </div>
+</main>

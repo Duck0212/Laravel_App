@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -8,4 +8,430 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@layer base {
+    :root {
+        --color-primary: #16a34a;
+        --color-on-primary: #ffffff;
+        --color-primary-container: rgba(22, 163, 74, 0.12);
+        --color-primary-fixed: #dcfce7;
+        --color-primary-fixed-dim: #d1fae5;
+        --color-secondary: #10b981;
+        --color-tertiary: #34d399;
+        --color-surface: #ffffff;
+        --color-surface-container-low: #f8fafc;
+        --color-surface-container-lowest: #f6f9f5;
+        --color-surface-container-highest: #ffffff;
+        --color-on-surface: #111827;
+        --color-on-surface-variant: #6b7280;
+        --color-outline-variant: #d1d5db;
+        --color-error: #dc2626;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--color-surface-container-lowest);
+        color: var(--color-on-surface);
+        font-family: var(--font-sans);
+    }
+}
+
+@layer utilities {
+    .font-display-lg {
+        font-weight: 800;
+        font-size: clamp(2rem, 4vw, 3rem);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+    }
+
+    .text-display-lg-mobile {
+        font-size: 2.5rem;
+        line-height: 1.05;
+    }
+
+    .font-headline-sm,
+    .font-headline-md,
+    .font-label-md {
+        font-weight: 700;
+    }
+
+    .text-headline-sm {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+
+    .text-headline-md {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+
+    .font-body-md,
+    .text-body-md {
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+
+    .font-body-lg,
+    .text-body-lg {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+
+    .text-label-md {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        font-weight: 600;
+    }
+
+    .font-label-sm {
+        font-weight: 600;
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+
+    .text-on-surface {
+        color: var(--color-on-surface);
+    }
+
+    .text-on-surface-variant {
+        color: var(--color-on-surface-variant);
+    }
+
+    .text-secondary {
+        color: var(--color-secondary);
+    }
+
+    .text-primary {
+        color: var(--color-primary);
+    }
+
+    .text-on-primary {
+        color: var(--color-on-primary);
+    }
+
+    .text-on-primary-fixed {
+        color: var(--color-primary-fixed);
+    }
+
+    .text-surface-variant {
+        color: var(--color-on-surface-variant);
+    }
+
+    .text-outline-variant {
+        color: var(--color-outline-variant);
+    }
+
+    .gap-base {
+        gap: 1rem;
+    }
+
+    .bg-primary {
+        background-color: var(--color-primary);
+    }
+
+    .bg-primary-container {
+        background-color: var(--color-primary-container);
+    }
+
+    .bg-primary-fixed {
+        background-color: var(--color-primary-fixed);
+    }
+
+    .bg-primary-fixed-dim {
+        background-color: var(--color-primary-fixed-dim);
+    }
+
+    .border-primary\/10 {
+        border-color: rgba(22, 163, 74, 0.1);
+    }
+
+    .bg-primary\/90 {
+        background-color: rgba(22, 163, 74, 0.9);
+    }
+
+    .bg-white\/90 {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .border-outline-variant\/30 {
+        border-color: rgba(209, 213, 219, 0.3);
+    }
+
+    .placeholder\:text-outline-variant::placeholder {
+        color: var(--color-outline-variant);
+    }
+
+    .focus\:ring-primary\/20:focus-visible {
+        box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.16);
+    }
+
+    .focus\:ring-primary-fixed-dim:focus-visible {
+        box-shadow: 0 0 0 4px rgba(209, 242, 235, 0.7);
+    }
+
+    .focus\:border-primary:focus-visible {
+        border-color: var(--color-primary);
+    }
+
+    .bg-secondary {
+        background-color: var(--color-secondary);
+    }
+
+    .bg-tertiary {
+        background-color: var(--color-tertiary);
+    }
+
+    .bg-surface {
+        background-color: var(--color-surface);
+    }
+
+    .bg-surface-container-low {
+        background-color: var(--color-surface-container-low);
+    }
+
+    .bg-surface-container-lowest {
+        background-color: var(--color-surface-container-lowest);
+    }
+
+    .bg-surface-container-high {
+        background-color: #f1f5f9;
+    }
+
+    .bg-surface-container-highest {
+        background-color: var(--color-surface-container-highest);
+    }
+
+    .bg-white-container {
+        background-color: #ffffff;
+    }
+
+    .bg-surface-container {
+        background-color: var(--color-surface-container-low);
+    }
+
+    .bg-primary\/5 {
+        background-color: rgba(22, 163, 74, 0.05);
+    }
+
+    .bg-primary-container\/10 {
+        background-color: rgba(22, 163, 74, 0.1);
+    }
+
+    .border-primary\/50 {
+        border-color: rgba(22, 163, 74, 0.5);
+    }
+
+    .text-outline {
+        color: var(--color-outline-variant);
+    }
+
+    .placeholder\:text-outline::placeholder {
+        color: var(--color-outline-variant);
+    }
+
+    .border-outline-variant,
+    .border-outline {
+        border-color: var(--color-outline-variant);
+    }
+
+    .border-primary {
+        border-color: var(--color-primary);
+    }
+
+    .rounded-2xl {
+        border-radius: 1rem;
+    }
+
+    .rounded-3xl {
+        border-radius: 1.5rem;
+    }
+
+    .mb-xs {
+        margin-bottom: 0.5rem;
+    }
+
+    .mb-sm {
+        margin-bottom: 0.75rem;
+    }
+
+    .mb-base,
+    .mb-md {
+        margin-bottom: 1rem;
+    }
+
+    .mb-lg {
+        margin-bottom: 1.5rem;
+    }
+
+    .mb-xl {
+        margin-bottom: 2rem;
+    }
+
+    .mt-sm {
+        margin-top: 0.75rem;
+    }
+
+    .mt-md {
+        margin-top: 1rem;
+    }
+
+    .mt-lg {
+        margin-top: 1.5rem;
+    }
+
+    .mt-xl {
+        margin-top: 2rem;
+    }
+
+    .px-lg {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .px-md {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .px-margin-mobile {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    @media (min-width: 768px) {
+        .md\:px-margin-desktop {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .md\:p-xl {
+            padding: 2rem;
+        }
+    }
+
+    .py-sm {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .py-md {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .py-xl {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .pt-sm {
+        padding-top: 0.75rem;
+    }
+
+    .pt-md {
+        padding-top: 1rem;
+    }
+
+    .pt-lg {
+        padding-top: 1.5rem;
+    }
+
+    .pb-base {
+        padding-bottom: 1rem;
+    }
+
+    .pb-lg {
+        padding-bottom: 1.5rem;
+    }
+
+    .p-md {
+        padding: 1rem;
+    }
+
+    .p-lg {
+        padding: 1.5rem;
+    }
+
+    .p-xl {
+        padding: 2rem;
+    }
+
+    .gap-xs {
+        gap: 0.5rem;
+    }
+
+    .gap-sm {
+        gap: 0.75rem;
+    }
+
+    .gap-md {
+        gap: 1rem;
+    }
+
+    .gap-lg {
+        gap: 1.5rem;
+    }
+
+    .gap-xl {
+        gap: 2rem;
+    }
+
+    .space-x-md {
+        column-gap: 1rem;
+    }
+
+    .space-y-sm {
+        row-gap: 0.75rem;
+    }
+
+    .shadow-card {
+        box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08);
+    }
+
+    .hover\:bg-primary:hover {
+        background-color: var(--color-primary);
+    }
+
+    .hover\:text-on-primary:hover {
+        color: var(--color-on-primary);
+    }
+
+    .hover\:bg-primary-container:hover {
+        background-color: var(--color-primary-container);
+    }
+
+    .hover\:bg-primary-fixed:hover {
+        background-color: #d1fae5;
+    }
+
+    .hover\:bg-surface-container-high:hover {
+        background-color: #f1f5f9;
+    }
+
+    .hover\:bg-surface-container-low:hover {
+        background-color: var(--color-surface-container-low);
+    }
+
+    .hover\:border-primary\/50:hover {
+        border-color: rgba(22, 163, 74, 0.5);
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    .hover\:cursor-pointer:hover {
+        cursor: pointer;
+    }
+
+    .focus\:ring-primary:focus-visible {
+        box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.18);
+    }
+
+    .focus\:ring-offset-0:focus-visible {
+        outline-offset: 0;
+    }
 }

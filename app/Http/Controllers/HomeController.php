@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -68,8 +69,15 @@ class HomeController extends Controller
     //Category Page
     public function category($categoryId)
     {
-        $products = Product::where('category_id', $categoryId)->get();
-        return view('category', ['products' => $products, 'categoryId' => $categoryId]);
+        $category = Category::findOrFail($categoryId);
+        $products = Product::with('category')
+            ->where('category_id', $categoryId)
+            ->paginate(12);
+
+        return view('category', [
+            'products' => $products,
+            'category' => $category,
+        ]);
     }
 
     public function cart()

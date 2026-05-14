@@ -34,11 +34,11 @@
                         <td>{{ $order->user->name }}</td>
                         <td><strong>{{ number_format($order->total_price, 0, ',', '.') }} ₫</strong></td>
                         <td>
-                            @if ($order->status === 'pending')
+                            @if ($order->status == 0)
                             <span class="badge bg-warning">Chờ xử lý</span>
-                            @elseif ($order->status === 'processing')
+                            @elseif ($order->status == 1)
                             <span class="badge bg-info">Đang xử lý</span>
-                            @elseif ($order->status === 'completed')
+                            @elseif ($order->status == 2)
                             <span class="badge bg-success">Hoàn thành</span>
                             @else
                             <span class="badge bg-danger">Đã hủy</span>

@@ -11,8 +11,16 @@
                 <i class="fas fa-plus"></i> Thêm sản phẩm
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.products.store') }}" method="POST">
+                <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+
+                    <div class="mb-3">
+                        <label for="img" class="form-label">Hình ảnh</label>
+                        <input type="file" class="form-control @error('img') is-invalid @enderror" id="img" name="img" accept="image/*">
+                        @error('img')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
 
                     <div class="mb-3">
                         <label for="name" class="form-label">Tên sản phẩm <span class="text-danger">*</span></label>
@@ -41,14 +49,6 @@
                         <label for="price" class="form-label">Giá <span class="text-danger">*</span></label>
                         <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price" value="{{ old('price') }}" step="0.01" min="0" required>
                         @error('price')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="quantity" class="form-label">Số lượng <span class="text-danger">*</span></label>
-                        <input type="number" class="form-control @error('quantity') is-invalid @enderror" id="quantity" name="quantity" value="{{ old('quantity') }}" min="0" required>
-                        @error('quantity')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>

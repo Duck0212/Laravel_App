@@ -287,6 +287,17 @@
             <div class="font-bold text-3xl tracking-tight text-gray-900">FreshHarvest</div>
             <nav class="hidden md:flex items-center space-x-8">
                 <a class="text-sm font-semibold text-gray-900 border-b-2 border-emerald-700 pb-1" href="{{ route('home') }}">Trang chủ</a>
+                <div class="relative group">
+                    <button class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors inline-flex items-center gap-1" type="button">
+                        Danh mục
+                        <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+                    </button>
+                    <div class="hidden group-hover:block absolute z-20 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-lg py-2">
+                        @foreach($categoryList as $category)
+                        <a href="{{ route('category', $category->id) }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">{{ $category->name }}</a>
+                        @endforeach
+                    </div>
+                </div>
                 <a class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors" href="{{ route('home') }}#products">Sản phẩm</a>
                 <a class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors" href="#">Về chúng tôi</a>
                 <a class="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors" href="#">Liên hệ</a>

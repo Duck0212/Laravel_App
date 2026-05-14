@@ -25,10 +25,10 @@
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Hình ảnh</th>
                         <th>Tên sản phẩm</th>
                         <th>Danh mục</th>
                         <th>Giá</th>
-                        <th>Số lượng</th>
                         <th>Ngày tạo</th>
                         <th>Hành động</th>
                     </tr>
@@ -37,6 +37,13 @@
                     @forelse ($products as $product)
                     <tr>
                         <td><strong>#{{ $product->id }}</strong></td>
+                        <td>
+                            @if ($product->image_url)
+                            <img src="{{ $product->image_url }}" alt="{{ $product->name }}" style="width: 50px; height: 50px; object-fit: cover;" class="rounded">
+                            @else
+                            <span class="text-muted">No image</span>
+                            @endif
+                        </td>
                         <td>{{ $product->name }}</td>
                         <td>
                             @if ($product->category)
@@ -46,11 +53,6 @@
                             @endif
                         </td>
                         <td><strong>{{ number_format($product->price, 0, ',', '.') }} ₫</strong></td>
-                        <td>
-                            <span class="badge {{ $product->quantity > 0 ? 'bg-success' : 'bg-danger' }}">
-                                {{ $product->quantity }}
-                            </span>
-                        </td>
                         <td>{{ $product->created_at->format('d/m/Y') }}</td>
                         <td>
                             <div class="action-buttons">

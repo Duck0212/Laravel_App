@@ -26,12 +26,15 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/product/{id}', [HomeController::class, 'productDetail'])->name('product.detail');
 Route::get('/search', [HomeController::class, 'search'])->name('search');
 Route::get('/category/{id}', [HomeController::class, 'category'])->name('category');
+
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
 Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
+
 Route::get('/checkout', [CheckoutController::class, 'show'])->middleware('auth')->name('checkout');
 Route::post('/checkout', [CheckoutController::class, 'process'])->middleware('auth')->name('checkout.process');
+
 Route::get('/login', [LoginController::class, 'show'])->middleware('guest')->name('login');
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest')->name('login.authenticate');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

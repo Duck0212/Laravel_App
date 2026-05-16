@@ -47,7 +47,7 @@
                 <a href="{{ route('product.detail', $product->id) }}">
                     <div class="relative aspect-[4/5] overflow-hidden">
                         <img class="w-full h-full object-cover" data-alt="Ảnh chụp cận cảnh (macro) những quả dâu tây hữu cơ tươi ngon, phủ đầy sương, trong một chiếc bát sứ trắng tinh. Ánh sáng mạnh và sáng, làm nổi bật màu đỏ tươi rực rỡ và những hạt nhỏ li ti của quả. Hình ảnh mang phong cách tối giản, sang trọng, thể hiện chất lượng cao cấp và độ tươi ngon của sản phẩm."
-                            src="{{ $product->img }}" />
+                            src="{{ $product->image_url }}" />
                     </div>
                 </a>
                 <div class="p-4 flex flex-col gap-2">

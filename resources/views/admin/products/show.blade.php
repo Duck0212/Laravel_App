@@ -22,6 +22,19 @@
 
                 <div class="row mb-3">
                     <div class="col-md-4">
+                        <strong>Hình ảnh:</strong>
+                    </div>
+                    <div class="col-md-8">
+                        @if ($product->image_url)
+                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="img-thumbnail" style="max-width: 200px;">
+                        @else
+                        <span class="text-muted">Không có hình ảnh</span>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-4">
                         <strong>Tên sản phẩm:</strong>
                     </div>
                     <div class="col-md-8">
@@ -48,17 +61,6 @@
                     </div>
                     <div class="col-md-8">
                         <span class="text-success fw-bold">{{ number_format($product->price, 0, ',', '.') }} ₫</span>
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <strong>Số lượng:</strong>
-                    </div>
-                    <div class="col-md-8">
-                        <span class="badge {{ $product->quantity > 0 ? 'bg-success' : 'bg-danger' }}">
-                            {{ $product->quantity }}
-                        </span>
                     </div>
                 </div>
 

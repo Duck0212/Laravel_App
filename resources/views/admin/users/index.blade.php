@@ -47,7 +47,7 @@
                             @endif
                         </td>
                         <td>
-                            <span class="badge bg-info">{{ $user->order()->count() }}</span>
+                            <span class="badge bg-info">{{ $user->orders()->count() }}</span>
                         </td>
                         <td>{{ $user->created_at->format('d/m/Y') }}</td>
                         <td>

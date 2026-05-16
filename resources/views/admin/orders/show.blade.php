@@ -39,11 +39,11 @@
                                 <strong>Trạng thái:</strong>
                             </div>
                             <div class="col-md-7">
-                                @if ($order->status === 'pending')
+                                @if ($order->status == 0)
                                 <span class="badge bg-warning">Chờ xử lý</span>
-                                @elseif ($order->status === 'processing')
+                                @elseif ($order->status == 1)
                                 <span class="badge bg-info">Đang xử lý</span>
-                                @elseif ($order->status === 'completed')
+                                @elseif ($order->status == 2)
                                 <span class="badge bg-success">Hoàn thành</span>
                                 @else
                                 <span class="badge bg-danger">Đã hủy</span>
@@ -78,9 +78,9 @@
                             @forelse ($order->orderProducts as $item)
                             <tr>
                                 <td>{{ $item->product->name }}</td>
-                                <td>{{ number_format($item->price, 0, ',', '.') }} ₫</td>
-                                <td>{{ $item->quantity }}</td>
-                                <td>{{ number_format($item->price * $item->quantity, 0, ',', '.') }} ₫</td>
+                                <td>{{ number_format($item->product->price, 0, ',', '.') }} ₫</td>
+                                <td>{{ $item->amount }}</td>
+                                <td>{{ number_format($item->product->price * $item->amount, 0, ',', '.') }} ₫</td>
                             </tr>
                             @empty
                             <tr>
@@ -117,10 +117,10 @@
                     <div class="mb-3">
                         <label for="status" class="form-label">Trạng thái</label>
                         <select class="form-select" id="status" name="status">
-                            <option value="pending" {{ $order->status === 'pending' ? 'selected' : '' }}>Chờ xử lý</option>
-                            <option value="processing" {{ $order->status === 'processing' ? 'selected' : '' }}>Đang xử lý</option>
-                            <option value="completed" {{ $order->status === 'completed' ? 'selected' : '' }}>Hoàn thành</option>
-                            <option value="cancelled" {{ $order->status === 'cancelled' ? 'selected' : '' }}>Đã hủy</option>
+                            <option value="0" {{ $order->status == 0 ? 'selected' : '' }}>Chờ xử lý</option>
+                            <option value="1" {{ $order->status == 1 ? 'selected' : '' }}>Đang xử lý</option>
+                            <option value="2" {{ $order->status == 2 ? 'selected' : '' }}>Hoàn thành</option>
+                            <option value="3" {{ $order->status == 3 ? 'selected' : '' }}>Đã hủy</option>
                         </select>
                     </div>
 

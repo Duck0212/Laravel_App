@@ -43,7 +43,7 @@
                         <strong>Số đơn hàng:</strong>
                     </div>
                     <div class="col-md-8">
-                        <span class="badge bg-info">{{ $user->order()->count() }}</span>
+                        <span class="badge bg-info">{{ $user->orders()->count() }}</span>
                     </div>
                 </div>
 

@@ -8,7 +8,7 @@
     <nav class="flex mb-8 space-x-2 text-xs font-semibold text-zinc-500">
         <a href="{{ route('home') }}">Trang chủ</a>
         <span>/</span>
-        <a href="{{ route('category', $category->id) }}">{{ $category->name }}</a>
+        <a href="{{ route('category', $product->category->id) }}">{{ $product->category->name }}</a>
         <span>/</span>
         <span class="text-emerald-800 font-bold">{{ $product->name }}</span>
     </nav>

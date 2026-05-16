@@ -19,8 +19,7 @@ class HomeController extends Controller
     public function productDetail($id)
     {
         $product = Product::findOrFail($id);
-        $category = $product->category;
-        return view('product-detail', compact('product', 'category'));
+        return view('product-detail', compact('product'));
     }
 
     //Search Page
